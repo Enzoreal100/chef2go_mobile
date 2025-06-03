@@ -1,30 +1,30 @@
 // app/_layout.tsx
+import Footer from "@/components/footer/footer";
+import { Header } from "@/components/header/header";
 import { Stack } from "expo-router";
 import { IndexRouteParams } from "./types/routeParams";
-import { Header } from "@/components/header/header";
-
+import { View } from "react-native";
 
 export default function RootLayout() {
   return (
+    <View style={{flex: 1}}>
+      {/* cria o render específico do header pra cada uma das rotas */}
     <Stack>
-      {/*
-        Esta Stack.Screen configura a rota 'index'.
-        A função `header` será chamada para renderizar o cabeçalho.
-        Dentro dela, acessamos `route.params` para obter as props customizadas.
-      */}
       <Stack.Screen
         name="index" // Corresponde ao arquivo app/index.tsx
-        options={({ route }) => { // <--- RECEBENDO 'route' NAS OPÇÕES DA TELA
+        options={({ route }) => {
+          // <--- RECEBENDO 'route' NAS OPÇÕES DA TELA
           const currentRouteParams = route.params as IndexRouteParams;
           // Definindo valores padrão caso as props não sejam passadas pela página
           const effectiveHeaderProps = {
-            ...(currentRouteParams?.headerProps || {}), 
+            ...(currentRouteParams?.headerProps || {}),
           };
 
           return {
             headerShown: false, // Oculta o cabeçalho padrão do Stack Navigator
-            header: () => ( // <--- RENDERIZANDO SEU COMPONENTE HEADER DIRETAMENTE AQUI
-              <Header {...effectiveHeaderProps}/>
+            header: () => (
+              // <--- RENDERIZANDO SEU COMPONENTE HEADER DIRETAMENTE AQUI
+              <Header {...effectiveHeaderProps} />
             ),
           };
         }}
@@ -47,6 +47,10 @@ export default function RootLayout() {
           };
         }}
       /> */}
+
+      
     </Stack>
+    <Footer />
+    </View>
   );
 }
