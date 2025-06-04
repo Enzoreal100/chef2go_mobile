@@ -1,6 +1,7 @@
 import { Header } from "@/components/header/header";
 import { HeaderProps } from "@/components/header/headerProps.interface";
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import { ChefsCard } from "@/components/chefsCard/chefsCard";
 
 const headerProps: HeaderProps = {
   greeting: 'Olá, Usuário!',
@@ -11,9 +12,9 @@ const headerProps: HeaderProps = {
 }
 export default function Index() {
   return (
-    <View>
+    <View style={{ flex: 1, backgroundColor: '#1C1C1C' }}>
       <Header {...headerProps} />
-      <Text>Vasco!</Text>
+      <ChefsCard />
     </View>
   );
 }
