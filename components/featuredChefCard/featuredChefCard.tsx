@@ -1,11 +1,12 @@
 // src/components/ChefCard.tsx
 import { Chef } from "@/constants/chefProps.interface";
+import { colors } from "@/constants/color.constants";
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 
-const ChefCard: React.FC<Chef> = ({
+export const ChefCard: React.FC<Chef> = ({
   name,
   cuisine,
   rating,
@@ -30,7 +31,7 @@ const ChefCard: React.FC<Chef> = ({
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#1E1E1E",
+    backgroundColor: colors.BASE,
     borderRadius: 8,
     marginVertical: 10,
     marginHorizontal: 16,
@@ -42,7 +43,9 @@ const styles = StyleSheet.create({
       width: 0,
       height: 1,
     },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 5,
     minHeight: 350,
   },
   chefImage: {
@@ -57,12 +60,12 @@ const styles = StyleSheet.create({
   chefName: {
     fontSize: 22,
     fontWeight: "bold",
-    color: "#FFFFFF",
+    color: colors.BG,
     marginBottom: 4,
   },
   chefSpecialty: {
     fontSize: 16,
-    color: "#CCCCCC",
+    color: colors.BG,
     marginBottom: 8,
   },
   detailsRow: {
@@ -74,14 +77,13 @@ const styles = StyleSheet.create({
   },
   rating: {
     fontSize: 16,
-    color: "#FFFFFF",
+    color: colors.BG,
     fontWeight: "bold",
     marginRight: 8,
   },
   priceRange: {
     fontSize: 16,
-    color: "#FFFFFF",
+    color: colors.BG,
   },
 });
 
-export default ChefCard;

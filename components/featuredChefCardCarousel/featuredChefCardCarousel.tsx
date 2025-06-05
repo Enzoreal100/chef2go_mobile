@@ -2,7 +2,7 @@ import { CARD_SPACING } from "@/constants/chefCardCarousel.constants";
 import { allChefsData } from "@/constants/chefsMockDB";
 import { Dimensions, StyleSheet, View } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
-import ChefCard from "../featuredChefCard/featuredChefCard";
+import { ChefCard } from "../featuredChefCard/featuredChefCard";
 
 export const ChefCardsCarousel: React.FC = () => {
   const chefsArray = Object.values(allChefsData);
@@ -36,11 +36,10 @@ const carouselStyles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 0.2,
   },
   cardWrapper: {
     // Pode adicionar estilos aqui para espaçamento entre os cards
     // Ou aplicar a margem diretamente no ChefCard
-    marginHorizontal: CARD_SPACING * 0.3,
+    marginHorizontal: CARD_SPACING * 2,
   },
 });

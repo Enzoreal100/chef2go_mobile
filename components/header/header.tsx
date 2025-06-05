@@ -1,8 +1,21 @@
-import React, { useRef } from 'react'; // Importe useRef
-import { View, Text, TextInput, Image, StyleSheet, ImageSourcePropType, TouchableOpacity } from 'react-native'; // Importe TouchableOpacity
-import { HeaderProps } from './headerProps.interface';
+import { colors } from "@/constants/color.constants";
+import React, { useRef } from "react"; // Importe useRef
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native"; // Importe TouchableOpacity
+import { HeaderProps } from "./headerProps.interface";
 
-export const Header: React.FC<HeaderProps> = ({ greeting, subtitle, profileImageUri, searchPlaceholder }) => {
+export const Header: React.FC<HeaderProps> = ({
+  greeting,
+  subtitle,
+  profileImageUri,
+  searchPlaceholder,
+}) => {
   // Crie uma referência para o TextInput
   const searchInputRef = useRef<TextInput>(null);
 
@@ -21,7 +34,11 @@ export const Header: React.FC<HeaderProps> = ({ greeting, subtitle, profileImage
           <Text style={styles.subtitleText}>{subtitle}</Text>
         </View>
         <Image
-          source={typeof profileImageUri === 'string' ? { uri: profileImageUri } : profileImageUri}
+          source={
+            typeof profileImageUri === "string"
+              ? { uri: profileImageUri }
+              : profileImageUri
+          }
           style={styles.profileImage}
         />
       </View>
@@ -48,23 +65,23 @@ export const Header: React.FC<HeaderProps> = ({ greeting, subtitle, profileImage
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#1E1E1E',
+    backgroundColor: colors.CARD,
     padding: 20,
     paddingTop: 50,
   },
   topRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginBottom: 20,
   },
   greetingText: {
-    color: '#FFFFFF',
+    color: colors.BASE,
     fontSize: 28,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   subtitleText: {
-    color: '#A0A0A0',
+    color: colors.BASE,
     fontSize: 16,
     marginTop: 5,
   },
@@ -73,25 +90,25 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 25,
     borderWidth: 2,
-    borderColor: 'green',
+    borderColor: "green",
   },
   searchBarContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#333333',
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.BG,
     borderRadius: 10,
     paddingHorizontal: 15,
     paddingVertical: 10,
   },
   searchBar: {
     flex: 1,
-    color: '#FFFFFF',
+    color: colors.SEARCH_TEXT,
     fontSize: 16,
     // Garante que o TextInput ocupe o espaço e seja clicável por toda a sua área
     padding: 0, // Remover padding padrão para melhor controle
   },
   searchIcon: {
-    color: '#A0A0A0',
+    color: "#A0A0A0",
     fontSize: 20,
     marginLeft: 10,
   },
