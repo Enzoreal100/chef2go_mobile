@@ -2,6 +2,7 @@ import { AntDesign } from "@expo/vector-icons";
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Chef } from "@/constants/chefProps.interface";
+import { colors } from "@/constants/color.constants";
 export interface ChefProps {
   chefs: Chef[]
 }
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
   chefCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#2A2A2A',
+    backgroundColor: colors.CARD,
     borderRadius: 10,
     padding: 15,
     marginBottom: 15,
@@ -57,11 +58,11 @@ const styles = StyleSheet.create({
   chefName: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#FFFFFF',
+    color: colors.BASE,
   },
   chefCuisine: {
     fontSize: 14,
-    color: '#BBBBBB',
+    color: colors.BASE,
     marginTop: 2,
   },
   ratingDistance: {
@@ -71,26 +72,26 @@ const styles = StyleSheet.create({
   },
   ratingText: {
     fontSize: 14,
-    color: '#FFFFFF',
+    color: colors.BASE,
     marginLeft: 5,
   },
   distanceText: {
     fontSize: 14,
-    color: '#BBBBBB',
+    color: colors.BASE,
   },
   bookButton: {
-    backgroundColor: '#E65100',
+    backgroundColor: colors.BASE,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
   },
   bookButtonText: {
-    color: '#FFFFFF',
+    color: colors.CARD,
     fontWeight: 'bold',
     fontSize: 16,
   },
   noChefsText: {
-    color: '#BBBBBB',
+    color: colors.BASE,
     textAlign: 'center',
     marginTop: 50,
     fontSize: 16,

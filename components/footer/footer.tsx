@@ -3,6 +3,7 @@ import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { usePathname, useRouter } from 'expo-router';
+import { colors } from '@/constants/color.constants';
 
 const Footer: React.FC = () => {
   const router = useRouter();
@@ -23,7 +24,7 @@ const Footer: React.FC = () => {
         <FontAwesome5
           name="home"
           size={24}
-          color={isRouteActive('/') ? '#FF6600' : '#FFFFFF'}
+          color={isRouteActive('/') ? colors.FOOTER_ACTIVE  : colors.BASE}
         />
       </TouchableOpacity>
 
@@ -34,7 +35,7 @@ const Footer: React.FC = () => {
         <FontAwesome5
           name="search"
           size={24}
-          color={isRouteActive('search') ? '#FF6600' : '#FFFFFF'}
+          color={isRouteActive('search') ? colors.FOOTER_ACTIVE  : colors.BASE}
         />
       </TouchableOpacity>
 
@@ -45,7 +46,7 @@ const Footer: React.FC = () => {
         <FontAwesome5
           name="bookmark"
           size={24}
-          color={isRouteActive('bookmark') ? '#FF6600' : '#FFFFFF'}
+          color={isRouteActive('bookmark') ? colors.FOOTER_ACTIVE  : colors.BASE}
         />
       </TouchableOpacity>
 
@@ -56,7 +57,7 @@ const Footer: React.FC = () => {
         <FontAwesome5
           name="user"
           size={24}
-          color={isRouteActive('profile') ? '#FF6600' : '#FFFFFF'}
+          color={isRouteActive('profile') ? colors.FOOTER_ACTIVE  : colors.BASE}
         />
       </TouchableOpacity>
     </View>
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#333333',
+    backgroundColor: colors.CARD,
     height: 80,
     position: 'absolute',
     bottom: 0,

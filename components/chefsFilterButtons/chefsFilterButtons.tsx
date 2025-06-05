@@ -2,6 +2,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, FlatList, View } from 'react-native';
 import { ChefFilterButtonsProps } from '../../constants/chefs-filter-buttons.interface';
+import { colors } from '@/constants/color.constants';
 
 
 export const ChefFilterButtons: React.FC<ChefFilterButtonsProps> = ({
@@ -57,20 +58,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   button: {
-    backgroundColor: '#2A2A2A',
+    backgroundColor: colors.UNACTIVE_BUTTON,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 25,
     marginHorizontal: 5,
     borderWidth: 1,
-    borderColor: '#3A3A3A',
+    borderColor:  colors.UNACTIVE_BUTTON,
   },
   selectedButton: {
-    backgroundColor: '#E65100',
-    borderColor: '#E65100',
+    backgroundColor: colors.BASE,
+    borderColor: colors.BASE,
   },
   buttonText: {
-    color: '#BBBBBB',
+    color: colors.BASE,
     fontSize: 16,
     fontWeight: '500',
   },
