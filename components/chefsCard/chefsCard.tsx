@@ -1,8 +1,10 @@
 import { AntDesign } from "@expo/vector-icons";
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { ChefProps } from "./chefProps.interface";
-
+import { Chef } from "@/constants/chefProps.interface";
+export interface ChefProps {
+  chefs: Chef[]
+}
 export const ChefsCard: React.FC<ChefProps> = ({ chefs }) => {
 
 return (

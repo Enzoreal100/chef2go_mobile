@@ -1,7 +1,7 @@
 // ChefFilterButtons.tsx
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, FlatList, View } from 'react-native';
-import { ChefFilterButtonsProps } from './chefs-filter-buttons.interface';
+import { ChefFilterButtonsProps } from '../../constants/chefs-filter-buttons.interface';
 
 
 export const ChefFilterButtons: React.FC<ChefFilterButtonsProps> = ({
