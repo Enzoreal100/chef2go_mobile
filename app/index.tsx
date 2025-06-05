@@ -1,12 +1,14 @@
 import { ChefsCard } from "@/components/chefsCard/chefsCard";
 import { ChefFilterButtons } from "@/components/chefsFilterButtons/chefsFilterButtons";
+import { ChefCardsCarousel } from "@/components/featuredChefCardCarousel/featuredChefCardCarousel";
 import { Header } from "@/components/header/header";
 import { HeaderProps } from "@/components/header/headerProps.interface";
-import { StyleSheet, View } from "react-native";
-import { allChefsData } from "./chefsMockDB";
-import { useMemo, useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { Text } from "@react-navigation/elements";
+import { useMemo, useState } from "react";
+import { StyleSheet } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { allChefsData } from "../constants/chefsMockDB";
 
 const headerProps: HeaderProps = {
   greeting: "Olá, Usuário!",
@@ -34,29 +36,28 @@ export default function Index() {
   }, [selectedCuisine]);
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#1C1C1C" }}>
-     <SafeAreaView style={{ flex: 1, backgroundColor: '#1C1C1C' }}>
-      <Header {...headerProps} />
-      <Text style={styles.screenHeader}>Nearby Chefs</Text>
-      <ChefFilterButtons
-        cuisines={availableCuisines}
-        selectedCuisine={selectedCuisine}
-        onSelectCuisine={setSelectedCuisine}
-      />
-      <ChefsCard chefs={filteredChefs} />
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#1C1C1C" }}>
+      <ScrollView>
+        <Header {...headerProps} />
+        <ChefCardsCarousel />
+        <Text style={styles.screenHeader}>Nearby Chefs</Text>
+        <ChefFilterButtons
+          cuisines={availableCuisines}
+          selectedCuisine={selectedCuisine}
+          onSelectCuisine={setSelectedCuisine}
+        />
+        <ChefsCard chefs={filteredChefs} />
+      </ScrollView>
     </SafeAreaView>
-    </View>
   );
 }
 const styles = StyleSheet.create({
   screenHeader: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#FFFFFF',
+    fontWeight: "bold",
+    color: "#FFFFFF",
     marginBottom: 20,
     marginLeft: 20,
     marginTop: 10,
   },
 });
-
-
