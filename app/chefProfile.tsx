@@ -64,7 +64,7 @@ export default function ChefProfile() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f7f7f7' },
+  container: { flex: 1, backgroundColor: '#f7f7f7', marginBottom: 70 },
   header: { flexDirection: 'row', alignItems: 'center', padding: 16 },
   backIcon: { marginRight: 8 },
   headerTitle: { fontSize: 20, fontWeight: '600' },
