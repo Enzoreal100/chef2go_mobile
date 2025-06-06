@@ -6,10 +6,11 @@ import { HeaderProps } from "@/components/header/headerProps.interface";
 import { allChefsData } from "@/constants/chefsMockDB";
 import { colors } from "@/constants/color.constants";
 import { Text } from "@react-navigation/elements";
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Chef } from "@/constants/chefProps.interface";
 
 const headerProps: HeaderProps = {
   greeting: "Olá, Guilherme!",
@@ -18,28 +19,59 @@ const headerProps: HeaderProps = {
   searchPlaceholder: "Procure por um chef, cozinha...",
 };
 
-const chefs = allChefsData;
+// Função de ordenação isolada. Ela só será chamada UMA VEZ na inicialização do estado.
+const sortChefs = (chefs: Chef[]) => {
+  return [...chefs].sort((a, b) => {
+    // Mantendo IsFavorite em PascalCase, conforme seu feedback
+    if (a.IsFavorite && !b.IsFavorite) {
+      return -1;
+    }
+    if (!a.IsFavorite && b.IsFavorite) {
+      return 1;
+    }
+    return b.rating - a.rating;
+  });
+};
 
 export default function Index() {
-  const [selectedCuisine, setSelectedCuisine] = useState("All Chefs"); // Estado para o filtro selecionado
+  // ALTERAÇÃO 1: Inicializa o estado dos chefs JÁ ORDENADO.
+  // Esta função de inicialização só é executada na PRIMEIRA renderização.
+  const [chefsData, setChefsData] = useState<Chef[]>(() => sortChefs(allChefsData));
 
-  // Extrai todas as cozinhas únicas e adiciona 'All Chefs' no início
+  const [selectedCuisine, setSelectedCuisine] = useState("All Chefs");
+
   const availableCuisines = useMemo(() => {
-    const cuisines = new Set(chefs.map((chef) => chef.cuisine));
+    // Note que availableCuisines ainda depende de chefsData.
+    // Isso é bom, pois se chefsData mudar (mesmo que a ordem não), as opções de filtro podem ser atualizadas.
+    const cuisines = new Set(chefsData.map((chef) => chef.cuisine));
     return ["All Chefs", ...Array.from(cuisines).sort()];
-  }, [chefs]);
+  }, [chefsData]);
 
-  // Filtra os chefs com base na cozinha selecionada
+  const handleToggleFavorite = (chefId: string) => {
+    setChefsData((prevChefs) => {
+      const updatedChefs = prevChefs.map((chef) =>
+        // Manter IsFavorite em PascalCase
+        chef.id === chefId ? { ...chef, IsFavorite: !chef.IsFavorite } : chef
+      );
+      // ALTERAÇÃO 2: Aqui, a lista 'updatedChefs' é retornada SEM re-ordenação.
+      // O 'useMemo' de filteredChefs abaixo usará esta lista na ordem atual.
+      console.log(`Chef ${chefId} favorito: ${!prevChefs.find(c => c.id === chefId)?.IsFavorite}`);
+      return updatedChefs;
+    });
+  };
+
+  // ALTERAÇÃO 3: filteredChefs AGORA SÓ FILTRA.
+  // Ele não aplica mais a ordenação, confiando na ordem que 'chefsData' já possui.
   const filteredChefs = useMemo(() => {
     if (selectedCuisine === "All Chefs") {
-      return chefs;
+      return chefsData; // Retorna a lista chefsData na sua ordem atual (inicialmente ordenada)
     }
-    return chefs.filter((chef) => chef.cuisine === selectedCuisine);
-  }, [selectedCuisine]);
+    return chefsData.filter((chef) => chef.cuisine === selectedCuisine);
+  }, [selectedCuisine, chefsData]); // Depende do filtro e dos dados (para re-filtrar se chefsData mudar)
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <Header {...headerProps} />
         <ChefCardsCarousel />
         <Text style={styles.screenHeader}>Nearby Chefs</Text>
@@ -48,16 +80,22 @@ export default function Index() {
           selectedCuisine={selectedCuisine}
           onSelectCuisine={setSelectedCuisine}
         />
-        <ChefsCard chefs={filteredChefs} />
+        <ChefsCard
+          chefs={filteredChefs} // Passa os chefs FILTRADOS, mas na ordem definida na inicialização
+          onToggleFavorite={handleToggleFavorite}
+        />
       </ScrollView>
     </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
   safeArea: {
-    flex: 1, // Faz a SafeAreaView ocupar toda a altura da tela
-    backgroundColor: colors.BG, 
-    marginBottom: 40, // Espaçamento inferior para evitar sobreposição com botões
+    flex: 1,
+    backgroundColor: colors.BG,
+  },
+  scrollViewContent: {
+    flexGrow: 1,
+    paddingBottom: 80,
   },
   screenHeader: {
     fontSize: 24,

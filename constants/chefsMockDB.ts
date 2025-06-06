@@ -9,6 +9,7 @@ export const allChefsData: Chef[] = [
     distance: 2.5,
     image: "https://randomuser.me/api/portraits/men/1.jpg",
     priceRange: "$$$",
+    IsFavorite: true
   },
   {
     id: "2",
@@ -18,8 +19,18 @@ export const allChefsData: Chef[] = [
     distance: 3.1,
     image: "https://randomuser.me/api/portraits/women/2.jpg",
     priceRange: "$$",
+    IsFavorite: true
   },
-
+  {
+    id: "3",
+    name: "Gustavo Andrade ",
+    cuisine: "Mexican Traditional",
+    rating: 4.7,
+    distance: 2.5,
+    image: "https://randomuser.me/api/portraits/men/12.jpg",
+    priceRange: "$$",
+    IsFavorite: true
+  },
   {
     id: "4",
     name: "Maria Antonia",
@@ -28,6 +39,7 @@ export const allChefsData: Chef[] = [
     distance: 4.2,
     image: "https://randomuser.me/api/portraits/women/4.jpg",
     priceRange: "$$$$",
+    IsFavorite: false,
   },
   {
     id: "5",
@@ -37,6 +49,7 @@ export const allChefsData: Chef[] = [
     distance: 0.9,
     image: "https://randomuser.me/api/portraits/women/10.jpg",
     priceRange: "$$",
+    IsFavorite: false,
   },
   {
     id: "6",
@@ -46,6 +59,7 @@ export const allChefsData: Chef[] = [
     distance: 3.5,
     image: "https://randomuser.me/api/portraits/women/6.jpg",
     priceRange: "$",
+    IsFavorite: false,
   },
   {
     id: "7",
@@ -55,6 +69,7 @@ export const allChefsData: Chef[] = [
     distance: 2.1,
     image: "https://randomuser.me/api/portraits/women/8.jpg",
     priceRange: "$$$$",
+    IsFavorite: false,
   },
   {
     id: "8",
@@ -64,6 +79,7 @@ export const allChefsData: Chef[] = [
     distance: 5.0,
     image: "https://randomuser.me/api/portraits/men/7.jpg",
     priceRange: "$$",
+    IsFavorite: false,
   },
   {
     id: "9",
@@ -73,6 +89,7 @@ export const allChefsData: Chef[] = [
     distance: 1.5,
     image: "https://randomuser.me/api/portraits/men/9.jpg",
     priceRange: "$$$$$",
+    IsFavorite: false,
   },
   {
     id: "10",
@@ -82,6 +99,7 @@ export const allChefsData: Chef[] = [
     distance: 2.8,
     image: "https://randomuser.me/api/portraits/men/5.jpg",
     priceRange: "$$$",
+    IsFavorite: false,
   },
   {
     id: "11",
@@ -91,6 +109,7 @@ export const allChefsData: Chef[] = [
     distance: 6.1,
     image: "https://randomuser.me/api/portraits/men/11.jpg",
     priceRange: "$$",
+    IsFavorite: false,
   },
   {
     id: "12",
@@ -100,6 +119,7 @@ export const allChefsData: Chef[] = [
     distance: 3.9,
     image: "https://randomuser.me/api/portraits/women/12.jpg",
     priceRange: "$",
+    IsFavorite: false,
   },
   {
     id: "13",
@@ -109,6 +129,7 @@ export const allChefsData: Chef[] = [
     distance: 0.7,
     image: "https://randomuser.me/api/portraits/men/13.jpg",
     priceRange: "$$$",
+    IsFavorite: false,
   },
   {
     id: "14",
@@ -118,6 +139,7 @@ export const allChefsData: Chef[] = [
     distance: 4.5,
     image: "https://randomuser.me/api/portraits/women/14.jpg",
     priceRange: "$$",
+    IsFavorite: false,
   },
   {
     id: "15",
@@ -127,6 +149,7 @@ export const allChefsData: Chef[] = [
     distance: 1.2,
     image: "https://randomuser.me/api/portraits/men/15.jpg",
     priceRange: "$$",
+    IsFavorite: false,
   },
   {
     id: "16",
@@ -136,6 +159,7 @@ export const allChefsData: Chef[] = [
     distance: 2.3,
     image: "https://randomuser.me/api/portraits/women/16.jpg",
     priceRange: "$$$",
+    IsFavorite: false,
   },
   {
     id: "17",
@@ -145,6 +169,7 @@ export const allChefsData: Chef[] = [
     distance: 5.8,
     image: "https://randomuser.me/api/portraits/men/17.jpg",
     priceRange: "$",
+    IsFavorite: false,
   },
   {
     id: "18",
@@ -154,6 +179,7 @@ export const allChefsData: Chef[] = [
     distance: 3.0,
     image: "https://randomuser.me/api/portraits/women/18.jpg",
     priceRange: "$",
+    IsFavorite: false,
   },
   {
     id: "19",
@@ -163,6 +189,7 @@ export const allChefsData: Chef[] = [
     distance: 0.5,
     image: "https://randomuser.me/api/portraits/men/19.jpg",
     priceRange: "$$$$$",
+    IsFavorite: false,
   },
   {
     id: "20",
@@ -172,8 +199,8 @@ export const allChefsData: Chef[] = [
     distance: 2.7,
     image: "https://randomuser.me/api/portraits/women/20.jpg",
     priceRange: "$$$$",
+    IsFavorite: false,
   },
 ];
 
-// Alias para reutilização com nome genérico em outras partes do app
-export const chefs = allChefsData;
+export default allChefsData
