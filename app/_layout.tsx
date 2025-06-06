@@ -7,7 +7,7 @@ import { IndexRouteParams } from "./types/routeParams";
 
 export default function RootLayout() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{ flex: 1}}>
       {/* cria o render específico do header pra cada uma das rotas */}
       <Stack>
         <Stack.Screen
@@ -30,6 +30,16 @@ export default function RootLayout() {
           }}
         />
 
+        {/* Exemplo para outra rota, como 'profile' */}
+        <Stack.Screen
+        name="profile" // Corresponde ao arquivo app/profile.tsx
+        options={({ route }) => {
+
+          return {
+            headerShown: false,
+          };
+        }}
+      />
         {/* Exemplo para outra rota, como 'profile' */}
         <Stack.Screen
         name="chefProfile" // Corresponde ao arquivo app/profile.tsx
