@@ -1,4 +1,4 @@
-import { chefs } from '@/constants/chefsMockDB';
+import { allChefsData as chefs } from '@/constants/chefsMockDB';
 import { Ionicons } from '@expo/vector-icons';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import React from 'react';
