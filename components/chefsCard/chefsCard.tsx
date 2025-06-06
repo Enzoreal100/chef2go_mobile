@@ -1,14 +1,25 @@
 import { AntDesign } from "@expo/vector-icons";
 import React from "react";
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { Chef } from "@/constants/chefProps.interface";
 import { colors } from "@/constants/color.constants";
-export interface ChefProps {
-  chefs: Chef[]
-}
-export const ChefsCard: React.FC<ChefProps> = ({ chefs }) => {
+import { useRouter } from "expo-router";
 
-return (
+export interface ChefProps {
+  chefs: Chef[];
+}
+
+export const ChefsCard: React.FC<ChefProps> = ({ chefs }) => {
+  const router = useRouter();
+
+  return (
     <ScrollView style={styles.scrollViewContent}>
       {chefs.length > 0 ? (
         chefs.map((chef) => (
@@ -20,10 +31,16 @@ return (
               <View style={styles.ratingDistance}>
                 <AntDesign name="star" size={16} color="#FFD700" />
                 <Text style={styles.ratingText}>{chef.rating}</Text>
-                <Text style={styles.distanceText}> • {chef.distance} km away</Text>
+                <Text style={styles.distanceText}>
+                  {" "}
+                  • {chef.distance} km away
+                </Text>
               </View>
             </View>
-            <TouchableOpacity style={styles.bookButton}>
+            <TouchableOpacity
+              style={styles.bookButton}
+              onPress={() => router.push(`/chefProfile?id=${chef.id}`)}
+            >
               <Text style={styles.bookButtonText}>Book</Text>
             </TouchableOpacity>
           </View>
@@ -36,11 +53,10 @@ return (
 };
 
 const styles = StyleSheet.create({
-  scrollViewContent: {
-  },
+  scrollViewContent: {},
   chefCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     backgroundColor: colors.CARD,
     borderRadius: 10,
     padding: 15,
@@ -57,7 +73,7 @@ const styles = StyleSheet.create({
   },
   chefName: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: colors.BASE,
   },
   chefCuisine: {
@@ -66,8 +82,8 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   ratingDistance: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginTop: 5,
   },
   ratingText: {
@@ -87,13 +103,13 @@ const styles = StyleSheet.create({
   },
   bookButtonText: {
     color: colors.CARD,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 16,
   },
   noChefsText: {
     color: colors.BASE,
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 50,
     fontSize: 16,
-  }
+  },
 });

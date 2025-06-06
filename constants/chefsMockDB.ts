@@ -3,7 +3,7 @@ import { Chef } from "./chefProps.interface";
 export const allChefsData: Chef[] = [
   {
     id: "1",
-    name: "James Wilson",
+    name: "Guilherme Berté",
     cuisine: "French Cuisine",
     rating: 4.7,
     distance: 2.5,
@@ -12,25 +12,17 @@ export const allChefsData: Chef[] = [
   },
   {
     id: "2",
-    name: "Maria Garcia",
+    name: "Helena de Brito ",
     cuisine: "Mexican Traditional",
     rating: 4.9,
     distance: 3.1,
     image: "https://randomuser.me/api/portraits/women/2.jpg",
     priceRange: "$$",
   },
-  {
-    id: "3",
-    name: "Chen Li",
-    cuisine: "Asian Fusion",
-    rating: 4.5,
-    distance: 1.8,
-    image: "https://randomuser.me/api/portraits/men/3.jpg",
-    priceRange: "$$$",
-  },
+
   {
     id: "4",
-    name: "Sophia Rossi",
+    name: "Maria Antonia",
     cuisine: "Italian Contemporary",
     rating: 4.8,
     distance: 4.2,
@@ -39,16 +31,16 @@ export const allChefsData: Chef[] = [
   },
   {
     id: "5",
-    name: "David Kim",
-    cuisine: "Korean BBQ",
+    name: "Isabela Finocchi",
+    cuisine: "Japanese Sushi",
     rating: 4.6,
     distance: 0.9,
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    image: "https://randomuser.me/api/portraits/women/10.jpg",
     priceRange: "$$",
   },
   {
     id: "6",
-    name: "Ana Silva",
+    name: "Maria Antonia",
     cuisine: "Brazilian Regional",
     rating: 5.0,
     distance: 3.5,
@@ -57,20 +49,20 @@ export const allChefsData: Chef[] = [
   },
   {
     id: "7",
-    name: "Pierre Dubois",
+    name: "Sofia Crepaldi",
     cuisine: "French Cuisine",
     rating: 4.7,
     distance: 2.1,
-    image: "https://randomuser.me/api/portraits/men/7.jpg",
+    image: "https://randomuser.me/api/portraits/women/8.jpg",
     priceRange: "$$$$",
   },
   {
     id: "8",
-    name: "Fatima Zahra",
+    name: "Pierre Real",
     cuisine: "Moroccan Delights",
     rating: 4.4,
     distance: 5.0,
-    image: "https://randomuser.me/api/portraits/women/8.jpg",
+    image: "https://randomuser.me/api/portraits/men/7.jpg",
     priceRange: "$$",
   },
   {
@@ -84,16 +76,16 @@ export const allChefsData: Chef[] = [
   },
   {
     id: "10",
-    name: "Isabella Costa",
+    name: "Daniel Fierri",
     cuisine: "Mediterranean Fresh",
     rating: 4.6,
     distance: 2.8,
-    image: "https://randomuser.me/api/portraits/women/10.jpg",
+    image: "https://randomuser.me/api/portraits/men/5.jpg",
     priceRange: "$$$",
   },
   {
     id: "11",
-    name: "Mark Johnson",
+    name: "Raphael Santos",
     cuisine: "American Comfort",
     rating: 4.3,
     distance: 6.1,
@@ -182,3 +174,6 @@ export const allChefsData: Chef[] = [
     priceRange: "$$$$",
   },
 ];
+
+// Alias para reutilização com nome genérico em outras partes do app
+export const chefs = allChefsData;
