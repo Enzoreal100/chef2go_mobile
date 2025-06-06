@@ -31,7 +31,16 @@ export default function RootLayout() {
         />
 
         {/* Exemplo para outra rota, como 'profile' */}
-        {/* <Stack.Screen
+        <Stack.Screen
+        name="chefProfile" // Corresponde ao arquivo app/profile.tsx
+        options={({ route }) => {
+
+          return {
+            headerShown: false,
+          }
+        }}
+      />
+              {/* <Stack.Screen
         name="profile" // Corresponde ao arquivo app/profile.tsx
         options={({ route }) => {
           const currentRouteParams = route.params as ProfileRouteParams;
