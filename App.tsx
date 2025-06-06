@@ -1,8 +1,8 @@
-import ChatBot from '@/components/ChatBot/ChatBot';
-import { StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React from 'react';
+import { SafeAreaView, StyleSheet } from 'react-native';
+import ChatBot from './components/ChatBot/ChatBot';
 
-export default function Index() {
+export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <ChatBot />
