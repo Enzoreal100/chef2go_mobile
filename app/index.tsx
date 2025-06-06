@@ -14,7 +14,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const headerProps: HeaderProps = {
   greeting: "Olá, Guilherme!",
   subtitle: "Ache o chef perfeito",
-  profileImageUri: "https://cdn.discordapp.com/attachments/1349007002399150182/1380004915409326280/image.png?ex=68424d3b&is=6840fbbb&hm=7c5e19ef761fdaf400ecf280e201a42ec9167c0e1308c7fd867c06c6daa0c9ea&",
+  profileImageUri: "https://mmdbbucket.s3.sa-east-1.amazonaws.com/berte.png",
   searchPlaceholder: "Procure por um chef, cozinha...",
 };
 
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1, // Faz a SafeAreaView ocupar toda a altura da tela
     backgroundColor: colors.BG, 
+    marginBottom: 40, // Espaçamento inferior para evitar sobreposição com botões
   },
   screenHeader: {
     fontSize: 24,
