@@ -57,9 +57,6 @@ export default function RootLayout() {
           <Stack.Screen
             name="chefProfile" // Corresponde ao arquivo app/profile.tsx
             options={({ route }) => {
-          <Stack.Screen
-            name="chefProfile" // Corresponde ao arquivo app/profile.tsx
-            options={({ route }) => {
 
               return {
                 headerShown: false,
