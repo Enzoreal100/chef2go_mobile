@@ -1,12 +1,11 @@
-import ChatBot from '@/components/ChatBot/ChatBot';
-import { StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { ChefCardsCarousel } from "@/components/featuredChefCardCarousel/featuredChefCardCarousel";
+import { StyleSheet, View } from "react-native";
 
 export default function Index() {
   return (
-    <SafeAreaView style={styles.container}>
-      <ChatBot />
-    </SafeAreaView>
+    <View style={styles.container}>
+      <ChefCardsCarousel />
+    </View>
   );
 }
 
