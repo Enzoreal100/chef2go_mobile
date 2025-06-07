@@ -9,6 +9,8 @@ import { StyleSheet } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Chef } from "@/constants/chefProps.interface";
+import { ChefFilterButtons } from "@/components/chefsFilterButtons/chefsFilterButtons";
+import { ChefsCard } from "@/components/chefsCard/chefsCard";
 
 const headerProps: HeaderProps = {
   greeting: "Olá, Guilherme!",
