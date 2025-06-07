@@ -20,6 +20,5 @@ export const photo = {
   chefa7: 'https://mmdbbucket.s3.sa-east-1.amazonaws.com/chefa7.png',
   chefa8: 'https://mmdbbucket.s3.sa-east-1.amazonaws.com/chefa8.png',
   chefa9: 'https://mmdbbucket.s3.sa-east-1.amazonaws.com/chefa9.png',
-  chefa10: 'https://mmdbbucket.s3.sa-east-1.amazonaws.com/chefa10',
-
+  chefa10: 'https://mmdbbucket.s3.sa-east-1.amazonaws.com/chefa10.png',
 }

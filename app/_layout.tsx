@@ -2,16 +2,55 @@
 import Footer from "@/components/footer/footer";
 import { Header } from "@/components/header/header";
 import { Stack, router, usePathname } from "expo-router";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Image, ImageComponent, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { IndexRouteParams } from "./types/routeParams";
+import React, { useEffect } from "react";
+import { photo } from "@/constants/photos.constant";
+
+import { colors } from "@/constants/color.constants";
+import { View } from "react-native";
 
 export default function RootLayout() {
   const pathname = usePathname();
+  const [appIsReady, setAppIsReady] = React.useState(false);
   
   const handleChatPress = () => {
     router.navigate('/chatbot' as any);
   };
+
+  useEffect(() => {
+    async function prepare() {
+      try {
+        const imageUrlsToPreload = Object.values(photo);
+        const preloadPromises = imageUrlsToPreload.map(url => {
+          if (url && typeof url === 'string') {
+              return Image.prefetch(url);
+            };
+            return Promise.resolve()
+        });    
+        await Promise.all(preloadPromises);
+      }
+      catch (err) {
+        console.warn('Error preloading images:', err);
+      } finally {
+        setAppIsReady(true);
+      }
+    }
+    prepare();
+  }, []);
+
+  if (!appIsReady) {
+    return (
+    <View style={styles.container}>
+        <Image
+          source={{ uri: photo.chefIA }}
+          style={styles.image}
+          resizeMode="contain" // Ajusta a imagem para caber sem cortar
+        />
+    </View>
+    );
+  }
 
   return (
     <GestureHandlerRootView style={{ flex: 1}}>
@@ -121,5 +160,17 @@ const styles = StyleSheet.create({
   chatIcon: {
     fontSize: 24,
     color: '#FFFFFF',
+  },
+    container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.BASE, // Usando a cor de fundo definida no constants
+  },
+  image: {
+    width: 200, // Ajuste o tamanho conforme necessário
+    height: 200,
+    borderRadius: 30, // Adiciona bordas arredondadas
+    zIndex: 1000, // Garante que a imagem fique acima de outros elementos
   },
 });
