@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
         <FontAwesome5
           name="home"
           size={24}
-          color={isRouteActive('/') ? colors.FOOTER_ACTIVE  : colors.BASE}
+          color={isRouteActive('home') ? colors.FOOTER_ACTIVE  : colors.BASE}
         />
       </TouchableOpacity>
 
@@ -49,6 +49,19 @@ const Footer: React.FC = () => {
           color={isRouteActive('favorites') ? colors.FOOTER_ACTIVE  : colors.BASE}
         />
       </TouchableOpacity>
+
+
+      <TouchableOpacity
+        style={styles.iconButton}
+        onPress={() => router.push('/message')}
+      >
+        <FontAwesome5
+          name="comment-alt"
+          size={24}
+          color={isRouteActive('message') ? colors.FOOTER_ACTIVE : colors.BASE}
+        />
+      </TouchableOpacity>
+
 
       <TouchableOpacity
         style={styles.iconButton}

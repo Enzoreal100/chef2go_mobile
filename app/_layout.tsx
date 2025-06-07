@@ -72,6 +72,13 @@ export default function RootLayout() {
           }}
         /> 
         <Stack.Screen
+          name="message" // Corresponde ao arquivo app/profile.tsx
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
           name="editProfile" // Corresponde ao arquivo app/editProfile.tsx
           options={{
             headerShown: false, // Oculta o cabeçalho padrão do Stack Navigator
