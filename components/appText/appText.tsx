@@ -4,7 +4,7 @@ import { Text, StyleSheet, TextStyle } from 'react-native';
 
 interface AppTextProps {
   children: React.ReactNode;
-  style?: TextStyle;
+  style?: TextStyle | TextStyle[];
 }
 
 const AppText: React.FC<AppTextProps> = ({ children, style }) => {
