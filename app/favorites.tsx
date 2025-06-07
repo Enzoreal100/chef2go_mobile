@@ -27,7 +27,7 @@ export default function Favorites() {
       <Header
         greeting="Seus favoritos"
         subtitle="Chefs que você salvou"
-        profileImageUri="https://example.com/profile.jpg"
+        profileImageUri="https://mmdbbucket.s3.sa-east-1.amazonaws.com/berte.png"
         searchPlaceholder="Buscar chefs..."
       />
 

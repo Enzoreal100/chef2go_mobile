@@ -84,6 +84,23 @@ export default function RootLayout() {
           };
         }}
       /> 
+        
+        <Stack.Screen
+        name="message" // Corresponde ao arquivo app/profile.tsx
+        options={({ route }) => {
+          const currentRouteParams = route.params as ProfileRouteParams;
+          const effectiveHeaderProps = {
+            ...(currentRouteParams?.headerProps || {}),
+          };
+
+          return {
+            headerShown: false,
+            header: () => (
+              <Header{...effectiveHeaderProps}/>
+            ),
+          };
+        }}
+      />
 
               {/* <Stack.Screen
         name="profile" // Corresponde ao arquivo app/profile.tsx
