@@ -1,17 +1,44 @@
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, FontAwesome } from "@expo/vector-icons"; // Importe FontAwesome
 import React from "react";
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { Chef } from "@/constants/chefProps.interface";
 import { colors } from "@/constants/color.constants";
-export interface ChefProps {
-  chefs: Chef[]
-}
-export const ChefsCard: React.FC<ChefProps> = ({ chefs }) => {
+import { useRouter } from "expo-router";
 
-return (
+export interface ChefsCardProps { // Renomeado de ChefProps para evitar conflito com a interface Chef
+  chefs: Chef[];
+  // NOVO: Adicionar uma prop para lidar com a alternância de favorito
+  onToggleFavorite: (chefId: string) => void;
+}
+
+export const ChefsCard: React.FC<ChefsCardProps> = ({ chefs, onToggleFavorite }) => {
+  const router = useRouter();
+
+  // NOVO: Lógica de ordenação - Favoritos primeiro, depois por rating (ou outra métrica)
+  const sortedChefs = [...chefs].sort((a, b) => {
+    // Se 'a' é favorito e 'b' não é, 'a' vem antes
+    if (a.IsFavorite && !b.IsFavorite) {
+      return -1;
+    }
+    // Se 'b' é favorito e 'a' não é, 'b' vem antes
+    if (!a.IsFavorite && b.IsFavorite) {
+      return 1;
+    }
+    // Se ambos são favoritos ou nenhum é favorito, ordene por rating (ou outra prioridade)
+    return b.rating - a.rating; // Maior rating primeiro
+  });
+
+  return (
     <ScrollView style={styles.scrollViewContent}>
-      {chefs.length > 0 ? (
-        chefs.map((chef) => (
+      {sortedChefs.length > 0 ? ( // Usar sortedChefs aqui
+        sortedChefs.map((chef) => (
           <View key={chef.id} style={styles.chefCard}>
             <Image source={{ uri: chef.image }} style={styles.chefImage} />
             <View style={styles.chefInfo}>
@@ -20,10 +47,29 @@ return (
               <View style={styles.ratingDistance}>
                 <AntDesign name="star" size={16} color="#FFD700" />
                 <Text style={styles.ratingText}>{chef.rating}</Text>
-                <Text style={styles.distanceText}> • {chef.distance} km away</Text>
+                <Text style={styles.distanceText}>
+                  {" "}
+                  • {chef.distance} km away
+                </Text>
               </View>
             </View>
-            <TouchableOpacity style={styles.bookButton}>
+
+            {/* NOVO: Ícone de Favorito */}
+            <TouchableOpacity
+              style={styles.favoriteButton}
+              onPress={() => onToggleFavorite(chef.id)} // Chama a função do pai
+            >
+              <FontAwesome
+                name={chef.IsFavorite ? "bookmark" : "bookmark-o"} // Ícone preenchido ou outline
+                size={24}
+                color={ colors.BASE } // Cor diferente se favorito
+              />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.bookButton}
+              onPress={() => router.push(`/chefProfile?id=${chef.id}`)}
+            >
               <Text style={styles.bookButtonText}>Book</Text>
             </TouchableOpacity>
           </View>
@@ -36,15 +82,20 @@ return (
 };
 
 const styles = StyleSheet.create({
-  scrollViewContent: {
-  },
+  scrollViewContent: {},
   chefCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     backgroundColor: colors.CARD,
     borderRadius: 10,
     padding: 15,
     marginBottom: 15,
+    // NOVO: Adicionar uma leve elevação ou sombra para destacar
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 3,
   },
   chefImage: {
     width: 60,
@@ -57,7 +108,7 @@ const styles = StyleSheet.create({
   },
   chefName: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: colors.BASE,
   },
   chefCuisine: {
@@ -66,8 +117,8 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   ratingDistance: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginTop: 5,
   },
   ratingText: {
@@ -79,6 +130,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.BASE,
   },
+  // NOVO: Estilo para o botão de favorito
+  favoriteButton: {
+    padding: 10,
+    marginRight: 10, // Espaçamento entre o ícone de favorito e o botão Book
+  },
   bookButton: {
     backgroundColor: colors.BASE,
     paddingVertical: 10,
@@ -87,13 +143,13 @@ const styles = StyleSheet.create({
   },
   bookButtonText: {
     color: colors.CARD,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 16,
   },
   noChefsText: {
     color: colors.BASE,
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 50,
     fontSize: 16,
-  }
+  },
 });

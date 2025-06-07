@@ -6,4 +6,5 @@ export interface Chef {
   distance: number;
   image: string;
   priceRange: string
+  IsFavorite: boolean;
 }

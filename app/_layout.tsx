@@ -14,8 +14,7 @@ export default function RootLayout() {
   };
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <View style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{ flex: 1}}>
         {/* cria o render específico do header pra cada uma das rotas */}
         <Stack>
           <Stack.Screen
@@ -38,21 +37,40 @@ export default function RootLayout() {
             }}
           />
 
+
           <Stack.Screen 
             name="chatbot" 
             options={{
               headerShown: false,
             }}
           />
+          <Stack.Screen
+            name="profile" // Corresponde ao arquivo app/profile.tsx
+            options={({ route }) => {
 
-          {/* Exemplo para outra rota, como 'profile' */}
-          {/* <Stack.Screen
-          name="profile" // Corresponde ao arquivo app/profile.tsx
-          options={({ route }) => {
-            const currentRouteParams = route.params as ProfileRouteParams;
-            const effectiveHeaderProps = {
-              ...(currentRouteParams?.headerProps || {}),
-            };
+              return {
+                headerShown: false,
+              };
+            }}
+          />
+        {/* Exemplo para outra rota, como 'profile' */}
+          <Stack.Screen
+            name="chefProfile" // Corresponde ao arquivo app/profile.tsx
+            options={({ route }) => {
+
+              return {
+                headerShown: false,
+              }
+            }}
+          />
+        {/* Exemplo para outra rota, como 'profile' */}
+        {/* <Stack.Screen
+        name="profile" // Corresponde ao arquivo app/profile.tsx
+        options={({ route }) => {
+          const currentRouteParams = route.params as ProfileRouteParams;
+          const effectiveHeaderProps = {
+            ...(currentRouteParams?.headerProps || {}),
+          };
 
             return {
               headerShown: false,
@@ -74,7 +92,6 @@ export default function RootLayout() {
             <Text style={styles.chatIcon}>💬</Text>
           </TouchableOpacity>
         )}
-      </View>
     </GestureHandlerRootView>
   );
 }
