@@ -23,7 +23,8 @@ export const ChefCardsCarousel: React.FC = () => {
             priceRange={item.priceRange}
             image={item.image}
             distance={item.distance}
-            id={item.id} // Adicionando a distância
+            id={item.id}
+            IsFavorite={item.IsFavorite}
           />
         )}
       />

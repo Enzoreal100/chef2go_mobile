@@ -2,6 +2,7 @@ import { ChatHeader } from '@/components/ChatBot/ChatHeader';
 import { ChatInput } from '@/components/ChatBot/ChatInput';
 import { Message } from '@/components/ChatBot/MessageBubble';
 import { MessagesList } from '@/components/ChatBot/MessagesList';
+import { photo } from '@/constants/photos.constant';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -26,15 +27,15 @@ export default function ChatBotPage() {
   return (
     <View style={styles.container}>
       <ChatHeader 
-        botName="ChefBot"
-        botAvatar="https://avatars.githubusercontent.com/u/140109430?v=4"
+        botName="ChefIA"
+        botAvatar={photo.chefIA}
         isOnline={true}
       />
       
       <MessagesList 
         messages={messages}
-        botAvatar="https://avatars.githubusercontent.com/u/140109430?v=4"
-        userAvatar="https://avatars.githubusercontent.com/u/186867310?v=4"
+        botAvatar={photo.chefIA}
+        userAvatar={photo.berte}
       />
 
       <ChatInput

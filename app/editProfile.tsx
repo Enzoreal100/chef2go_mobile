@@ -184,6 +184,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.BG,
     marginBottom: 40, // Espaçamento inferior para evitar sobreposição com botões
+
   },
   header: {
     flexDirection: 'row',

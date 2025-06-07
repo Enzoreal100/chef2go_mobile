@@ -157,6 +157,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.BG, // Cor de fundo geral escura
     marginBottom: 70, // Espaçamento inferior para evitar sobreposição com botões
+    marginTop: 40, // Espaçamento superior para evitar sobreposição com o cabeçalho
   },
   headerButtons: {
     flexDirection: 'row',
