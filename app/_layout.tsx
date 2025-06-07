@@ -2,7 +2,7 @@
 import Footer from "@/components/footer/footer";
 import { Header } from "@/components/header/header";
 import { Stack, router, usePathname } from "expo-router";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { IndexRouteParams } from "./types/routeParams";
 
@@ -63,6 +63,27 @@ export default function RootLayout() {
               }
             }}
           />
+
+             <Stack.Screen
+        name="favorites" // Corresponde ao arquivo app/favorites.tsx
+        options={({ route }) => {
+
+          return {
+            headerShown: false,
+          };
+        }}
+      /> 
+
+      <Stack.Screen
+        name="search" // Corresponde ao arquivo app/search.tsx
+        options={({ route }) => {
+
+          return {
+            headerShown: false,
+          };
+        }}
+      /> 
+
         {/* Exemplo para outra rota, como 'profile' */}
         {/* <Stack.Screen
         name="profile" // Corresponde ao arquivo app/profile.tsx

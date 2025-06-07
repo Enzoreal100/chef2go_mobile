@@ -41,12 +41,12 @@ const Footer: React.FC = () => {
 
       <TouchableOpacity
         style={styles.iconButton}
-        onPress={() => router.push('/bookmark')}
+        onPress={() => router.push('/favorites')}
       >
         <FontAwesome5
           name="bookmark"
           size={24}
-          color={isRouteActive('bookmark') ? colors.FOOTER_ACTIVE  : colors.BASE}
+          color={isRouteActive('favorites') ? colors.FOOTER_ACTIVE  : colors.BASE}
         />
       </TouchableOpacity>
 
