@@ -10,10 +10,14 @@ import { colors } from '@/constants/color.constants';
 import MenuItem from '@/components/menuItem/menuItem';
 import BookingCard from '@/components/bookingCard/bookingCard';
 import SectionHeader from '@/components/sectionHeader/sectionHeader';
+import { useRouter } from 'expo-router';
 
 const Profile: React.FC = () => {
+
+  const router = useRouter();
+
   const handleEditProfile = () => {
-    console.log('Editar perfil');
+    router.push('/editProfile'); // Navega para a tela de edição de perfil
   };
 
   const handleStatPress = (stat: string) => {
@@ -35,6 +39,9 @@ const Profile: React.FC = () => {
   const handleOpenChat = () => {
     console.log('Abrir chat');
   };
+  
+
+
 
   return (
     <SafeAreaView style={styles.safeArea}>

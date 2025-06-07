@@ -46,73 +46,49 @@ export default function RootLayout() {
           />
           <Stack.Screen
             name="profile" // Corresponde ao arquivo app/profile.tsx
-            options={({ route }) => {
-
-              return {
-                headerShown: false,
-              };
+            options={{
+              headerShown: false,
             }}
           />
         {/* Exemplo para outra rota, como 'profile' */}
           <Stack.Screen
             name="chefProfile" // Corresponde ao arquivo app/profile.tsx
-            options={({ route }) => {
-
-              return {
-                headerShown: false,
-              }
+            options={{
+              headerShown: false,
             }}
           />
 
-             <Stack.Screen
-        name="favorites" // Corresponde ao arquivo app/favorites.tsx
-        options={({ route }) => {
-
-          return {
-            headerShown: false,
-          };
-        }}
-      /> 
-
-      <Stack.Screen
-        name="search" // Corresponde ao arquivo app/search.tsx
-        options={({ route }) => {
-
-          return {
-            headerShown: false,
-          };
-        }}
-      /> 
-
-        {/* Exemplo para outra rota, como 'profile' */}
-        {/* <Stack.Screen
-        name="profile" // Corresponde ao arquivo app/profile.tsx
-        options={({ route }) => {
-          const currentRouteParams = route.params as ProfileRouteParams;
-          const effectiveHeaderProps = {
-            ...(currentRouteParams?.headerProps || {}),
-          };
-
-            return {
+        <Stack.Screen
+          name="favorites" // Corresponde ao arquivo app/favorites.tsx
+          options={{
               headerShown: false,
-              header: () => (
-                <Header{...effectiveHeaderProps}/>
-              ),
-            };
           }}
-        /> */}
+        /> 
+
+        <Stack.Screen
+          name="search" // Corresponde ao arquivo app/search.tsx
+          options={{
+              headerShown: false,
+          }}
+        /> 
+        <Stack.Screen
+          name="editProfile" // Corresponde ao arquivo app/editProfile.tsx
+          options={{
+            headerShown: false, // Oculta o cabeçalho padrão do Stack Navigator
+          }}
+        />
         </Stack>
-        <Footer />
+      <Footer />
         
-        {/* Botão flutuante do chatbot - só aparece quando não está na tela do chatbot */}
-        {pathname !== '/chatbot' && (
-          <TouchableOpacity 
-            style={styles.floatingChatButton} 
-            onPress={handleChatPress}
-          >
-            <Text style={styles.chatIcon}>💬</Text>
-          </TouchableOpacity>
-        )}
+      {/* Botão flutuante do chatbot - só aparece quando não está na tela do chatbot */}
+      {pathname !== '/chatbot' && (
+        <TouchableOpacity 
+          style={styles.floatingChatButton} 
+          onPress={handleChatPress}
+        >
+          <Text style={styles.chatIcon}>💬</Text>
+        </TouchableOpacity>
+      )}
     </GestureHandlerRootView>
   );
 }
