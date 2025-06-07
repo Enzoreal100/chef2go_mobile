@@ -1,4 +1,4 @@
-// src/components/ChefCard.tsx
+
 import { Chef } from "@/constants/chefProps.interface";
 import { colors } from "@/constants/color.constants";
 import React from "react";
