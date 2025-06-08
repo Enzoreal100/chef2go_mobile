@@ -42,7 +42,7 @@ export default function ChatBotPage() {
         value={inputText}
         onChangeText={setInputText}
         onSend={handleSend}
-        placeholder="Type your message..."
+        placeholder="Digite a sua mensagem..."
       />
     </View>
   );

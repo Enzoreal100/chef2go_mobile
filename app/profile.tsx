@@ -11,6 +11,7 @@ import MenuItem from '@/components/menuItem/menuItem';
 import BookingCard from '@/components/bookingCard/bookingCard';
 import SectionHeader from '@/components/sectionHeader/sectionHeader';
 import { useRouter } from 'expo-router';
+import { photo } from '@/constants/photos.constant';
 
 const Profile: React.FC = () => {
 
@@ -47,16 +48,16 @@ const Profile: React.FC = () => {
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
         <ProfileHeader
-          avatarUri="https://mmdbbucket.s3.sa-east-1.amazonaws.com/berte.png" // Substitua por sua imagem
+          avatarUri={photo.berte} 
           name="Guilherme Berte"
           email="guilhermeberte@email.com"
           onEditProfile={handleEditProfile}
         />
 
         <View style={styles.statsContainer}>
-          <StatCard value={12} label="Bookings" onPress={() => handleStatPress('Bookings')} />
+          <StatCard value={12} label="Reservas" onPress={() => handleStatPress('Bookings')} />
           <View style={styles.statDivider} />
-          <StatCard value={5} label="Favorites" onPress={() => handleStatPress('Favorites')} />
+          <StatCard value={3} label="Favoritos" onPress={() => handleStatPress('Favorites')} />
           <View style={styles.statDivider} />
           <StatCard value={7} label="Reviews" onPress={() => handleStatPress('Reviews')} />
         </View>
@@ -65,7 +66,7 @@ const Profile: React.FC = () => {
           <MenuItem
             iconName="book-multiple"
             iconFamily="MaterialCommunityIcons"
-            title="My Bookings"
+            title="Minhas Reservas"
             onPress={() => handleMenuItemPress('My Bookings')}
             showChevron={false}
             style={styles.gridItem}
@@ -74,7 +75,7 @@ const Profile: React.FC = () => {
           <MenuItem
             iconName="star-outline"
             iconFamily="MaterialCommunityIcons"
-            title="Favorites"
+            title="Favoritos"
             onPress={() => handleMenuItemPress('Favorites')}
             showChevron={false}
             style={styles.gridItem}
@@ -83,7 +84,7 @@ const Profile: React.FC = () => {
           <MenuItem
             iconName="cog"
             iconFamily="FontAwesome"
-            title="Settings"
+            title="Configurações"
             onPress={() => handleMenuItemPress('Settings')}
             showChevron={false}
             style={styles.gridItem}
@@ -92,7 +93,7 @@ const Profile: React.FC = () => {
           <MenuItem
             iconName="headset"
             iconFamily="MaterialCommunityIcons"
-            title="Support"
+            title="Suporte"
             onPress={() => handleMenuItemPress('Support')}
             showChevron={false}
             style={styles.gridItem}
@@ -100,20 +101,20 @@ const Profile: React.FC = () => {
           />
         </View>
 
-        <SectionHeader title="Recent Bookings" onSeeAll={handleSeeAllBookings} />
+        <SectionHeader title="Reservas Recentes" onSeeAll={handleSeeAllBookings} />
 
         <View style={styles.bookingsList}>
           <BookingCard
             avatarUri="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             name="Marco Rossi"
-            details="Italian Dinner · 2 May, 7:00 PM"
-            status="Completed"
+            details="Jantar Italiano · 2 Mai, 19:00"
+            status="Completa"
           />
           <BookingCard
             avatarUri="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             name="Sarah Chen"
-            details="Asian Fusion · 14 Apr, 6:30 PM"
-            status="Upcoming"
+            details="Asian Fusion · 12 Jun, 20:00"
+            status="Próxima"
           />
         </View>
         
@@ -121,28 +122,28 @@ const Profile: React.FC = () => {
           <MenuItem
             iconName="account-outline"
             iconFamily="MaterialCommunityIcons"
-            title="Account"
+            title="Minha Conta"
             onPress={() => handleMenuItemPress('Account')}
             color="#E0E0E0"
           />
           <MenuItem
             iconName="bell-outline"
             iconFamily="MaterialCommunityIcons"
-            title="Notifications"
+            title="Notificações"
             onPress={() => handleMenuItemPress('Notifications')}
             color="#E0E0E0"
           />
           <MenuItem
             iconName="help-circle-outline"
             iconFamily="MaterialCommunityIcons"
-            title="Help Center"
+            title="Central de Ajuda"
             onPress={() => handleMenuItemPress('Help Center')}
             color="#E0E0E0"
           />
           <MenuItem
             iconName="logout"
             iconFamily="MaterialCommunityIcons"
-            title="Logout"
+            title="Sair"
             onPress={() => handleMenuItemPress('Logout')}
             color="#FF4500" // Cor para Logout
           />

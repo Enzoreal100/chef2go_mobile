@@ -7,11 +7,11 @@ interface BookingCardProps {
   avatarUri: string;
   name: string;
   details: string;
-  status: 'Completed' | 'Upcoming';
+  status: 'Completa' | 'Próxima';
 }
 
 const BookingCard: React.FC<BookingCardProps> = ({ avatarUri, name, details, status }) => {
-  const statusColor = status === 'Completed' ? '#28a745' : '#ffc107'; // Verde ou Amarelo
+  const statusColor = status === 'Completa' ? '#28a745' : '#ffc107'; // Verde ou Amarelo
 
   return (
     <View style={styles.container}>

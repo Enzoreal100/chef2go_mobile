@@ -5,7 +5,7 @@ export const allChefsData: Chef[] = [
   {
     id: "1",
     name: "Guilherme Berté",
-    cuisine: "French Cuisine",
+    cuisine: "Culinária Francesa",
     rating: 4.7,
     distance: 2.5,
     image: photo.chef1,
@@ -15,7 +15,7 @@ export const allChefsData: Chef[] = [
   {
     id: "2",
     name: "Helena de Brito ",
-    cuisine: "Mexican Traditional",
+    cuisine: "Tradicional Mexicana",
     rating: 4.9,
     distance: 3.1,
     image: photo.chefa1,
@@ -25,7 +25,7 @@ export const allChefsData: Chef[] = [
   {
     id: "3",
     name: "Gustavo Andrade ",
-    cuisine: "Mexican Traditional",
+    cuisine: "Tradicional Mexicana",
     rating: 4.7,
     distance: 2.5,
     image: photo.chef2,
@@ -35,7 +35,7 @@ export const allChefsData: Chef[] = [
   {
     id: "4",
     name: "Maria Antonia",
-    cuisine: "Italian Contemporary",
+    cuisine: "Italiana Contemporânea",
     rating: 4.8,
     distance: 4.2,
     image: photo.chefa2,
@@ -45,7 +45,7 @@ export const allChefsData: Chef[] = [
   {
     id: "5",
     name: "Isabela Finocchi",
-    cuisine: "Japanese Sushi",
+    cuisine: "Sushi Japonês",
     rating: 4.6,
     distance: 0.9,
     image: photo.chefa3,
@@ -55,7 +55,7 @@ export const allChefsData: Chef[] = [
   {
     id: "6",
     name: "Maria Antonia",
-    cuisine: "Brazilian Regional",
+    cuisine: "Culinária Brasileira",
     rating: 5.0,
     distance: 3.5,
     image: photo.chefa4,
@@ -65,7 +65,7 @@ export const allChefsData: Chef[] = [
   {
     id: "7",
     name: "Sofia Crepaldi",
-    cuisine: "French Cuisine",
+    cuisine: "Culinária Francesa",
     rating: 4.7,
     distance: 2.1,
     image: photo.chefa5,
@@ -75,7 +75,7 @@ export const allChefsData: Chef[] = [
   {
     id: "8",
     name: "Pierre Real",
-    cuisine: "Moroccan Delights",
+    cuisine: "Culinária Marroquina",
     rating: 4.4,
     distance: 5.0,
     image: photo.chef3,
@@ -85,7 +85,7 @@ export const allChefsData: Chef[] = [
   {
     id: "9",
     name: "Hiroshi Tanaka",
-    cuisine: "Japanese Sushi",
+    cuisine: "Sushi Japonês",
     rating: 4.9,
     distance: 1.5,
     image: photo.chef4,
@@ -95,7 +95,7 @@ export const allChefsData: Chef[] = [
   {
     id: "10",
     name: "Daniel Fierri",
-    cuisine: "Mediterranean Fresh",
+    cuisine: "Culinária Mediterrânea",
     rating: 4.6,
     distance: 2.8,
     image: photo.chef5,
@@ -105,7 +105,7 @@ export const allChefsData: Chef[] = [
   {
     id: "11",
     name: "Raphael Santos",
-    cuisine: "American Comfort",
+    cuisine: "Culinária Americana",
     rating: 4.3,
     distance: 6.1,
     image: photo.chef6,
@@ -115,7 +115,7 @@ export const allChefsData: Chef[] = [
   {
     id: "12",
     name: "Sofia Petrov",
-    cuisine: "Eastern European",
+    cuisine: "Culinária Russa",
     rating: 4.7,
     distance: 3.9,
     image: photo.chefa6,
@@ -125,7 +125,7 @@ export const allChefsData: Chef[] = [
   {
     id: "13",
     name: "Antonio Morales",
-    cuisine: "Spanish Tapas",
+    cuisine: "Tapas Espanholas",
     rating: 4.8,
     distance: 0.7,
     image: photo.chef7,
@@ -135,7 +135,7 @@ export const allChefsData: Chef[] = [
   {
     id: "14",
     name: "Lena Schmidt",
-    cuisine: "German Modern",
+    cuisine: "Moderna Alemã",
     rating: 4.2,
     distance: 4.5,
     image: photo.chefa7,
@@ -145,7 +145,7 @@ export const allChefsData: Chef[] = [
   {
     id: "15",
     name: "Omar Hassan",
-    cuisine: "Middle Eastern",
+    cuisine: "Culinária Árabe",
     rating: 4.5,
     distance: 1.2,
     image: photo.chef8,
@@ -155,7 +155,7 @@ export const allChefsData: Chef[] = [
   {
     id: "16",
     name: "Chloe Dubois",
-    cuisine: "Vegan & Organic",
+    cuisine: "Vegan e orgânica",
     rating: 4.9,
     distance: 2.3,
     image: photo.chefa8,
@@ -165,7 +165,7 @@ export const allChefsData: Chef[] = [
   {
     id: "17",
     name: "Rohan Sharma",
-    cuisine: "Indian Spicy",
+    cuisine: "Culinária Indiana",
     rating: 4.6,
     distance: 5.8,
     image: photo.chef9,
@@ -175,7 +175,7 @@ export const allChefsData: Chef[] = [
   {
     id: "18",
     name: "Elena Petrova",
-    cuisine: "Russian Home",
+    cuisine: "Culinária Russa",
     rating: 4.1,
     distance: 3.0,
     image: photo.chefa9,
@@ -185,7 +185,7 @@ export const allChefsData: Chef[] = [
   {
     id: "19",
     name: "Javier Gomez",
-    cuisine: "Peruvian Nikkei",
+    cuisine: "Culinária Peruana",
     rating: 5.0,
     distance: 0.5,
     image: photo.chef10,
@@ -195,7 +195,7 @@ export const allChefsData: Chef[] = [
   {
     id: "20",
     name: "Sophie Müller",
-    cuisine: "Swiss Fine Dining",
+    cuisine: "Culinária Suíça",
     rating: 4.8,
     distance: 2.7,
     image: photo.chef10,

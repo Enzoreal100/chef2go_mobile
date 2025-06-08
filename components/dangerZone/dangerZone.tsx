@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import AppText from '../appText/appText';
 import AppButton from '../appButton/appButton';
 import { colors } from '@/constants/color.constants';
 
@@ -11,9 +10,8 @@ interface DangerZoneProps {
 const DangerZone: React.FC<DangerZoneProps> = ({ onDeleteAccount }) => {
   return (
     <View style={styles.container}>
-      <AppText style={styles.title}>Danger Zone</AppText>
       <AppButton
-        title="Delete Account"
+        title="Deletar Conta"
         onPress={onDeleteAccount}
         style={styles.deleteButton}
         textStyle={styles.deleteButtonText}

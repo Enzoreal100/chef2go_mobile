@@ -25,7 +25,7 @@ export default function EditProfileScreen() {
 
   // Estados para as preferências dietéticas
   const [dietaryPreferences, setDietaryPreferences] = useState<string[]>(['Vegetariano', 'Sem Glúten']);
-  const allDietaryOptions = ['Vegetariano', 'Sem Glúten', 'Vegan', 'Dairy-Free', 'Keto'];
+  const allDietaryOptions = ['Vegetariano', 'Sem Glúten', 'Vegan', 'Sem Laticínios', 'Sem Açúcar'];
 
   // Estados para as preferências de notificação
   const [bookingUpdatesEnabled, setBookingUpdatesEnabled] = useState(true);
