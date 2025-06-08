@@ -45,7 +45,7 @@ const SearchScreen = () => {
     }
 
     if (activeFilters.includes('$$')) {
-      filtered = filtered.filter((chef) => chef.price === '$$');
+      filtered = filtered.filter((chef) => chef.priceRange === '$$');
     }
 
     if (selectedCuisine) {

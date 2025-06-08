@@ -74,7 +74,7 @@ export default function Index() {
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <Header {...headerProps} />
         <ChefCardsCarousel />
-        <Text style={styles.screenHeader}>Nearby Chefs</Text>
+        <Text style={styles.screenHeader}>Chefs Próximos</Text>
         <ChefFilterButtons
           cuisines={availableCuisines}
           selectedCuisine={selectedCuisine}

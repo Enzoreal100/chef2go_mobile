@@ -72,7 +72,7 @@ useEffect(() => {
       {/* NOVO: Ajusta aboutProps para usar dados dinâmicos do chef */}
       <About name={currentChef.name} priceRange={currentChef.priceRange} />
 
-      <Specialties items={['Pasta', 'Risotto', 'Tiramisu', 'Seafood', 'Cooking Classes']} />
+      <Specialties items={['Pasta', 'Risotto', 'Tiramisu', 'Frutos do Mar', 'Aula de Cozinha']} />
 
       <Reviews></Reviews>
       <TouchableOpacity style={styles.button}>
